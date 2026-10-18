@@ -83,9 +83,33 @@ Deshalb braucht die Seite **kein Cookie-Banner**. Wer etwas Externes einbaut
 - [ ] Offene Fragen zur Karte klären (Liste in `material/restaurant-infos.md`).
 - [ ] Text „Über uns“ und die Empfehlungslisten vom Inhaber freigeben lassen.
 - [ ] Eigene Fotos (Essen, Innenraum, außen) einsetzen.
-- [ ] Hosting wählen (deutscher Anbieter empfohlen) und Domain einrichten.
-      Hoster-Name dann in die Datenschutzerklärung eintragen.
+- [ ] Endgültiges Hosting entscheiden: GitHub Pages behalten oder deutscher Anbieter + Domain.
+      Bei Wechsel die Datenschutzerklärung (Abschnitt Hosting) anpassen.
+- [ ] Vorschau-Sperre aufheben (siehe „Online (Vorschau)“).
 - [ ] Ordner `material/`, `assets/` und `.taste-skill/` **nicht** mit hochladen.
+
+## Online (Vorschau)
+
+Die Seite liegt als **Vorschau** auf GitHub Pages: **https://taanel.github.io/anh-em/**
+(Code-Projekt: https://github.com/Taanel/anh-em). Suchmaschinen sind ausgesperrt
+(`noindex` in den Seiten + `robots.txt`), nur wer den Link hat, findet sie.
+
+**Änderungen online stellen** (im Ordner `restaurant-website`):
+
+```sh
+git add -A
+git commit -m "Kurz beschreiben, was geändert wurde"
+git push
+```
+
+Nach etwa einer Minute ist die neue Version online. `material/`, `assets/` und `.taste-skill/`
+werden dank `.gitignore` nie hochgeladen.
+
+**Wenn die Seite fertig ist** (Impressum vollständig, Inhaber hat alles freigegeben):
+1. In `index.html` und `en/index.html` die Zeile `<meta name="robots" content="noindex, nofollow">` löschen.
+2. In `robots.txt` `Disallow: /` durch `Allow: /` ersetzen.
+3. Optional eigene Domain einrichten. Bei einem Umzug zu einem deutschen Hoster den Abschnitt
+   „Hosting“ in der Datenschutzerklärung (DE und EN) anpassen.
 
 ## Testen
 

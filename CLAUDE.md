@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Website for a friend's restaurant in Bavaria, Germany. Static site, plain HTML/CSS/JS, no build step, no framework, no npm dependencies. Keep it that way. Languages: German (root) and English (`en/`). Hosting is not decided yet, so the site must work on any static host and when opened via double-click (file://). `README.md` is the German guide for the owner and for developers; keep it in sync.
+Website for a friend's restaurant in Bavaria, Germany. Static site, plain HTML/CSS/JS, no build step, no framework, no npm dependencies. Keep it that way. Languages: German (root) and English (`en/`). Own git repo `Taanel/anh-em` (public), deployed as a **preview** to GitHub Pages: https://taanel.github.io/anh-em/ (noindex + robots.txt Disallow until the Impressum is complete). The site must keep working on any static host and via double-click (file://). `README.md` is the German guide for the owner and for developers; keep it in sync.
 
 ## Structure
 
