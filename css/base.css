@@ -1,0 +1,96 @@
+/* =========================================================
+   base.css – Grundeinstellungen für die ganze Seite
+   Setzt Browser-Standards zurück und legt Schrift und Farben fest.
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Breite enthält Innenabstand und Rahmen */
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Beim Springen zu #anker nicht unter der festen Kopfleiste verschwinden */
+  scroll-padding-top: calc(var(--kopf-hoehe) + 12px);
+}
+
+body {
+  margin: 0;
+  background-color: var(--grund);
+  /* Ganz feine Papierstruktur, als kleines SVG direkt im CSS (keine externe Datei) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.27 0 0 0 0 0.2 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color: var(--tinte);
+  font-family: var(--schrift-text);
+  font-size: var(--groesse-text);
+  line-height: 1.65;
+}
+
+h1, h2, h3, p, ul, ol, dl, dd, figure {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: var(--schrift-titel);
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance; /* Überschriften gleichmäßig umbrechen */
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+/* Sichtbarer Rahmen, wenn man mit der Tastatur (Tab) navigiert */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--rot);
+  color: var(--hell);
+}
+
+/* Versteckte Elemente bleiben versteckt, auch wenn eine andere Regel
+   ihnen z. B. display: grid gibt (wichtig für Reiter und Filter der Speisekarte) */
+[hidden] {
+  display: none !important;
+}
+
+/* Zahlen gleich breit, damit Preise sauber untereinander stehen */
+.zahlen {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Nur für Screenreader (Vorlese-Programme) sichtbar */
+.nur-vorlesen {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Wer in den Systemeinstellungen "weniger Bewegung" gewählt hat:
+   kein weiches Scrollen. Die einzelnen Animationen haben eigene Regeln
+   in components.css. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

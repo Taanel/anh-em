@@ -1,0 +1,730 @@
+/* =========================================================
+   components.css – Einzelne Bausteine
+   Knöpfe, Kopfleiste, großes Bild, Speisekarte, Fotoraster,
+   Karte, Footer, Rechtstexte, Animationen.
+   ========================================================= */
+
+/* ---------- Knöpfe ---------- */
+
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;         /* groß genug für den Daumen */
+  padding: 0 1.6rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius-knopf);
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve),
+              border-color var(--dauer) var(--kurve), transform var(--dauer) var(--kurve);
+}
+.knopf:hover { transform: translateY(-1px); }
+.knopf:active { transform: translateY(0); }
+
+/* Rot: die wichtigste Aktion (Reservieren) */
+.knopf--rot {
+  background: var(--rot);
+  color: var(--hell);
+}
+.knopf--rot:hover { background: var(--rot-dunkel); }
+
+/* Hell umrandet: auf dunklen Bildern */
+.knopf--hell {
+  border-color: var(--hell);
+  color: var(--hell);
+}
+.knopf--hell:hover {
+  background: var(--hell);
+  color: var(--tinte);
+}
+
+/* Dunkel umrandet: auf hellem Grund */
+.knopf--rand {
+  border-color: var(--tinte);
+  color: var(--tinte);
+}
+.knopf--rand:hover {
+  background: var(--tinte);
+  color: var(--hell);
+}
+
+.knopfreihe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.knopfreihe--mitte {
+  justify-content: center;
+}
+
+.mitte {
+  text-align: center;
+}
+
+/* Unterstrichener Textlink mit Pfeil */
+.textlink {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--rot);
+  font-weight: 500;
+  text-decoration-thickness: 1px;
+}
+.textlink::after {
+  content: " →";
+  display: inline-block;
+  transition: transform var(--dauer) var(--kurve);
+}
+.textlink:hover::after {
+  transform: translateX(4px);
+}
+
+/* Kleine goldene Zierlinie mit Raute über Überschriften */
+.zierzeile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+.zierzeile::before,
+.zierzeile::after {
+  content: "";
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+}
+.zierzeile span {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+h2 {
+  font-size: var(--groesse-h2);
+}
+h3 {
+  font-size: var(--groesse-h3);
+}
+
+.abschnitt__kopf p:not(.zierzeile) {
+  margin-top: 0.75rem;
+  color: var(--tinte-weich);
+  font-size: var(--groesse-gross);
+}
+
+/* ---------- Kopfleiste ---------- */
+
+.kopfleiste__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.kopfleiste__logo img {
+  width: 48px;
+  height: 48px;
+}
+.kopfleiste__name {
+  font-family: var(--schrift-titel);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Menüknopf (☰) für das Handy: drei Striche aus einem Element + ::before/::after */
+.kopfleiste__menueknopf {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+@media (min-width: 900px) {
+  .kopfleiste__menueknopf { display: none; } /* Desktop: Menü steht direkt in der Leiste */
+}
+.kopfleiste__striche,
+.kopfleiste__striche::before,
+.kopfleiste__striche::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--tinte);
+  transition: transform var(--dauer) var(--kurve), background-color var(--dauer) var(--kurve);
+}
+.kopfleiste__striche {
+  position: relative;
+}
+.kopfleiste__striche::before,
+.kopfleiste__striche::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.kopfleiste__striche::before { top: -7px; }
+.kopfleiste__striche::after { top: 7px; }
+/* Offen: die Striche werden zu einem X */
+[aria-expanded="true"] .kopfleiste__striche { background: transparent; }
+[aria-expanded="true"] .kopfleiste__striche::before { transform: translateY(7px) rotate(45deg); }
+[aria-expanded="true"] .kopfleiste__striche::after { transform: translateY(-7px) rotate(-45deg); }
+
+.hauptmenue ul {
+  display: grid;
+  gap: 0.25rem;
+}
+.hauptmenue ul a {
+  display: block;
+  padding: 0.6rem 0;
+  font-weight: 500;
+  text-decoration: none;
+}
+@media (min-width: 900px) {
+  .hauptmenue ul {
+    display: flex;
+    gap: 1.75rem;
+  }
+  .hauptmenue ul a {
+    position: relative;
+    padding: 0.25rem 0;
+    font-size: 0.95rem;
+  }
+  /* Feiner roter Strich unter dem Menüpunkt beim Darüberfahren */
+  .hauptmenue ul a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: var(--rot);
+    transform: scaleX(0);
+    transition: transform var(--dauer) var(--kurve);
+  }
+  .hauptmenue ul a:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* ---------- Großes Bild (Held) ---------- */
+
+.held__bild,
+.band__bild {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Abdunklung über dem Foto, damit der weiße Text gut lesbar ist */
+.held::before,
+.band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at center, rgb(29 22 19 / 0.45), rgb(29 22 19 / 0.75)),
+    rgb(29 22 19 / 0.15);
+}
+
+.held__inhalt {
+  position: relative;
+  max-width: 48rem;
+}
+
+.held__emblem {
+  width: clamp(96px, 12vw, 150px);
+  height: auto;
+  margin: 0 auto 1.25rem;
+}
+
+.held__titel {
+  font-size: var(--groesse-held);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.held__unterzeile {
+  margin-top: 1rem;
+  font-size: var(--groesse-gross);
+  letter-spacing: 0.04em;
+}
+
+/* "Jetzt geöffnet"-Anzeige mit farbigem Punkt.
+   Normaler Textfluss (inline-block), damit sie auf dem Handy sauber umbricht. */
+.held__status {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 1.25rem;
+  background: rgb(29 22 19 / 0.55);
+  font-size: var(--groesse-klein);
+}
+.punkt {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: var(--gold);
+  vertical-align: 0.05em;
+}
+.punkt.ist-offen { background: #5bbf7a; }  /* grün = geöffnet */
+.punkt.ist-zu { background: #e0796f; }     /* hellrot = geschlossen */
+
+/* Kleine Ortsangabe unten rechts auf Stimmungsbildern */
+.bildort {
+  position: absolute;
+  right: var(--rand);
+  bottom: 1rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* ---------- Willkommen ---------- */
+
+.willkommen__text {
+  margin-top: 1.5rem;
+  font-size: var(--groesse-gross);
+  line-height: 1.75;
+}
+
+/* ---------- Zwei Küchen ---------- */
+
+.kueche__bild img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.kueche__text h3 {
+  margin-bottom: 1rem;
+}
+
+.kueche__text > p {
+  color: var(--tinte-weich);
+}
+
+.empfehlungen {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 24rem;
+  margin-top: 1.5rem;
+}
+.empfehlungen li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dotted var(--gold);
+  font-weight: 500;
+}
+.empfehlungen li span:last-child {
+  color: var(--gold-text);
+}
+
+/* ---------- Bildband "Reservieren" ---------- */
+
+.band__inhalt {
+  position: relative;
+  max-width: 40rem;
+}
+.band__inhalt > p {
+  margin-top: 1rem;
+  font-size: var(--groesse-gross);
+}
+.band__telefon {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: var(--schrift-titel);
+  font-size: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+  font-weight: 600;
+  text-decoration: none;
+}
+.band .band__zeiten {
+  font-size: var(--groesse-klein);
+  opacity: 0.85;
+}
+
+/* ---------- Speisekarte ---------- */
+
+/* Reiter: Küche / Sushi / Desserts / Getränke */
+.reiter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.reiter button {
+  min-height: 44px;
+  padding: 0 1.25rem;
+  border: 1px solid var(--tinte);
+  border-radius: var(--radius-knopf);
+  background: transparent;
+  color: var(--tinte);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve);
+}
+.reiter button:hover {
+  background: var(--grund-3);
+}
+.reiter button[aria-selected="true"] {
+  background: var(--tinte);
+  color: var(--hell);
+}
+
+/* Schalter "Nur vegetarisch" */
+.karte__filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+.karte__filter input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--rot);
+}
+
+.karte__gruppe {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Eine Kategorie = ein aufklappbarer Kasten (<details>) */
+.kategorie {
+  border-radius: var(--radius);
+  background: var(--grund);
+}
+.kategorie summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  padding: 0 1.25rem;
+  font-family: var(--schrift-titel);
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none; /* versteckt das Standard-Dreieck */
+}
+.kategorie summary::-webkit-details-marker {
+  display: none;
+}
+/* Plus-Zeichen rechts, dreht sich beim Öffnen zum × */
+.kategorie summary::after {
+  content: "+";
+  color: var(--gold-text);
+  font-family: var(--schrift-text);
+  font-size: 1.5rem;
+  font-weight: 400;
+  transition: transform var(--dauer) var(--kurve);
+}
+.kategorie[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.kategorie__hinweis {
+  padding: 0 1.25rem;
+  color: var(--tinte-weich);
+  font-size: var(--groesse-klein);
+  font-style: italic;
+}
+
+.kategorie__gerichte {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+.gericht__kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.gericht__name {
+  font-weight: 600;
+}
+.gericht__nr {
+  margin-right: 0.5em;
+  color: var(--gold-text);
+  font-variant-numeric: tabular-nums;
+}
+.gericht__menge {
+  margin-left: 0.5em;
+  color: var(--tinte-weich);
+  font-weight: 400;
+}
+.gericht__preis {
+  white-space: nowrap;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.gericht__info {
+  color: var(--tinte-weich);
+  font-size: 0.95rem;
+}
+.gericht__varianten {
+  display: grid;
+  gap: 2px;
+  margin-top: 0.4rem;
+  padding-left: 1rem;
+  font-size: 0.95rem;
+}
+.gericht__varianten li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Filter aktiv: nicht vegetarische Gerichte ausblenden (Getränke bleiben) */
+.nur-vegetarisch .karte__gruppe:not([data-getraenke]) [data-veg="nein"] {
+  display: none;
+}
+
+/* Legende der Allergene */
+.karte__legende {
+  margin-top: 0.75rem;
+}
+.legende {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0.5rem 1.25rem 1.5rem;
+}
+@media (min-width: 560px) {
+  .legende { grid-template-columns: 1fr 1fr; }
+}
+.legende__liste {
+  display: grid;
+  grid-template-columns: 2.2em 1fr;
+  gap: 2px 8px;
+  font-size: 0.95rem;
+}
+.legende__liste dt {
+  color: var(--gold-text);
+  font-weight: 600;
+}
+.legende__liste dd {
+  margin: 0;
+}
+
+.karte__hinweis {
+  margin-top: 1.5rem;
+  color: var(--tinte-weich);
+  font-size: var(--groesse-klein);
+  text-align: center;
+}
+
+/* ---------- Fotoraster ---------- */
+
+.fotoraster figure {
+  position: relative;
+  aspect-ratio: 1;  /* quadratisch wie bei Instagram */
+  overflow: hidden;
+}
+.fotoraster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--kurve);
+}
+.fotoraster figure:hover img {
+  transform: scale(1.06);
+}
+/* Bildunterschrift unten im Bild, auf dunklem Verlauf */
+.fotoraster figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem 0.75rem 0.6rem;
+  background: linear-gradient(transparent, rgb(29 22 19 / 0.7));
+  color: var(--hell);
+  font-size: 0.8rem;
+}
+
+/* ---------- Besuch: Karte + Adresse ---------- */
+
+.besuch__text h2 {
+  margin-bottom: 1.5rem;
+}
+.besuch__text h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.15rem;
+}
+.besuch__adresse {
+  font-size: var(--groesse-gross);
+}
+
+.zeiten {
+  border-collapse: collapse;
+}
+.zeiten th {
+  padding: 0 1.5rem 0 0;
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Platzhalter für die Karte: Bild vom Bahnhof mit Knopf darüber */
+.karte-zwei-klick {
+  position: relative;
+  min-height: 440px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--grund-2);
+}
+.karte-zwei-klick img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.karte-zwei-klick__hinweis {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  max-width: 26rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: var(--grund);
+  font-size: var(--groesse-klein);
+  color: var(--tinte-weich);
+}
+.karte-zwei-klick__rahmen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  border: 0;
+}
+
+/* ---------- Fuß (Footer) ---------- */
+
+.fuss__marke img {
+  width: 120px;
+  height: auto;
+}
+.fuss__titel {
+  margin-bottom: 0.75rem;
+  color: var(--gold);
+  font-family: var(--schrift-text);
+  font-size: var(--groesse-klein);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.fuss p {
+  color: rgb(251 248 243 / 0.85);
+  overflow-wrap: break-word;
+}
+.fuss__unten {
+  font-size: var(--groesse-klein);
+}
+
+/* ---------- Unterseiten (Impressum, Datenschutz) ---------- */
+
+.rechtstext h1 {
+  margin-bottom: 2rem;
+  font-size: var(--groesse-h2);
+  hyphens: manual;
+}
+.rechtstext h2 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: var(--groesse-h3);
+}
+.rechtstext p + p {
+  margin-top: 0.75rem;
+}
+.rechtstext__liste {
+  display: grid;
+  gap: 0.75rem;
+}
+.rechtstext__stand {
+  margin-top: 2.5rem;
+  color: var(--tinte-weich);
+}
+/* Platzhalter, die vor dem Veröffentlichen ersetzt werden müssen: gut sichtbar gelb */
+.ausfuellen {
+  background: #f3d27a;
+}
+
+/* ---------- Sprunglink (nur für Tastatur sichtbar) ---------- */
+
+.sprung {
+  position: absolute;
+  left: 8px;
+  top: -100px;
+  z-index: 30;
+  padding: 12px 16px;
+  background: var(--tinte);
+  color: var(--hell);
+}
+.sprung:focus {
+  top: 8px;
+}
+
+/* ---------- Bewegung ---------- */
+
+/* Das große Bild zoomt beim Laden ganz langsam heraus */
+.held__bild {
+  animation: heranZoomen 14s var(--kurve) both;
+}
+@keyframes heranZoomen {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
+}
+
+/* Einschweben beim Scrollen: nur wenn JavaScript läuft (Klasse .js auf <html>).
+   Die direkten Kinder eines Abschnitts kommen nacheinander von unten. */
+.js [data-erscheinen] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms var(--kurve), transform 700ms var(--kurve);
+}
+.js [data-erscheinen].sichtbar > * {
+  opacity: 1;
+  transform: none;
+}
+.js [data-erscheinen] > :nth-child(2) { transition-delay: 80ms; }
+.js [data-erscheinen] > :nth-child(3) { transition-delay: 160ms; }
+.js [data-erscheinen] > :nth-child(4) { transition-delay: 240ms; }
+.js [data-erscheinen] > :nth-child(n+5) { transition-delay: 320ms; }
+
+/* "Weniger Bewegung" eingestellt: alles sofort und still */
+@media (prefers-reduced-motion: reduce) {
+  .held__bild { animation: none; }
+  .js [data-erscheinen] > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .knopf, .fotoraster img, .textlink::after { transition: none; }
+}

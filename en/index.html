@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anh Em – Vietnamese Kitchen & Sushi Bar in Coburg</title>
+  <meta name="description" content="Anh Em, Bahnhofstraße 11, Coburg: Vietnamese kitchen and sushi bar. Lunch, dinner and takeaway. Book a table: +49 9561 6758245.">
+  <!-- VORSCHAU: Suchmaschinen sollen die Seite noch nicht anzeigen.
+       Diese Zeile löschen, sobald Impressum und Datenschutz vollständig sind. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f1e8">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="alternate" hreflang="de" href="../">
+  <link rel="alternate" hreflang="en" href="./">
+
+  <!-- Vorschau, wenn jemand den Link in WhatsApp, Facebook usw. teilt -->
+  <meta property="og:title" content="Anh Em – Vietnamese Kitchen & Sushi Bar in Coburg">
+  <meta property="og:description" content="Bahnhofstraße 11, Coburg. Lunch, dinner, takeaway.">
+  <meta property="og:image" content="images/logo-dunkel.png">
+  <meta property="og:type" content="restaurant">
+
+  <!-- Markiert, dass JavaScript läuft. Erst dann werden Inhalte für die
+       Einblend-Animation kurz versteckt. Ohne JavaScript bleibt alles sichtbar. -->
+  <script>document.documentElement.classList.add("js");</script>
+
+  <!-- Wichtigste Schriftdateien vorladen, damit die Überschriften sofort richtig aussehen -->
+  <link rel="preload" href="../fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/bevietnampro-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS: erst die Werte (tokens), dann Grundlagen, dann Aufbau, dann Bausteine -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+
+  <!-- Daten für Google (schema.org): Name, Adresse, Zeiten, Küche -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Anh Em",
+    "description": "Vietnamese kitchen and sushi bar in Coburg",
+    "servesCuisine": ["Vietnamese", "Sushi"],
+    "telephone": "+49 9561 6758245",
+    "email": "restaurantanhem@gmail.com",
+    "priceRange": "€€",
+    "acceptsReservations": "True",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bahnhofstraße 11",
+      "postalCode": "96450",
+      "addressLocality": "Coburg",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "15:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "17:00",
+        "closes": "22:00"
+      }
+    ],
+    "sameAs": ["https://www.instagram.com/anhemrestaurant.coburg/"]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="sprung" href="#inhalt">Skip to content</a>
+
+  <!-- ===================================================
+       KOPFLEISTE (bleibt beim Scrollen oben stehen)
+       Links das Logo, rechts die Menüpunkte und "Reservieren".
+       Auf dem Handy klappt das Menü über den Knopf ☰ auf
+       (gesteuert von js/navigation.js).
+       =================================================== -->
+  <header class="kopfleiste" id="kopfleiste">
+    <a class="kopfleiste__logo" href="#oben" aria-label="Anh Em – back to top">
+      <img src="../images/emblem.webp" width="400" height="400" alt="">
+      <span class="kopfleiste__name">Anh Em</span>
+    </a>
+
+    <button class="kopfleiste__menueknopf" type="button" aria-expanded="false" aria-controls="hauptmenue">
+      <span class="kopfleiste__striche" aria-hidden="true"></span>
+      <span class="nur-vorlesen">Menu</span>
+    </button>
+
+    <nav class="hauptmenue" id="hauptmenue" aria-label="Main navigation">
+      <ul>
+        <li><a href="#karte">Menu</a></li>
+        <li><a href="#ueber-uns">About</a></li>
+        <li><a href="#eindruecke">Impressions</a></li>
+        <li><a href="#besuch">Visit</a></li>
+        <li><a href="../" hreflang="de" lang="de">DE</a></li>
+      </ul>
+      <a class="knopf knopf--rot" href="#reservieren">Book a table</a>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+
+    <!-- ===================================================
+         GROSSES BILD MIT NAME
+         =================================================== -->
+    <section class="held" id="oben" aria-labelledby="held-titel">
+      <img class="held__bild" fetchpriority="high"
+           src="../images/fotos/laternen-decke-1920.webp"
+           srcset="../images/fotos/laternen-decke-960.webp 960w, ../images/fotos/laternen-decke-1920.webp 1920w"
+           sizes="100vw" width="1920" height="1080"
+           alt="Many colourful silk lanterns glowing under a wooden ceiling">
+      <div class="held__inhalt">
+        <img class="held__emblem" src="../images/emblem.webp" width="400" height="400" alt="">
+        <h1 class="held__titel" id="held-titel">Anh Em</h1>
+        <p class="held__unterzeile">Vietnamese kitchen &amp; sushi bar in Coburg</p>
+
+        <!-- Live-Anzeige: js/oeffnungszeiten.js setzt hier den aktuellen Stand ein.
+             Ohne JavaScript bleibt dieser Text stehen. -->
+        <p class="held__status">
+          <span class="punkt" id="status-punkt" aria-hidden="true"></span>
+          <span id="status">Daily 11 am–3 pm and 5–10 pm</span><span id="status-detail"></span>
+        </p>
+
+        <div class="knopfreihe knopfreihe--mitte">
+          <a class="knopf knopf--rot" href="#reservieren">Book a table</a>
+          <a class="knopf knopf--hell" href="#karte">See the menu</a>
+        </div>
+      </div>
+      <p class="bildort">Mood picture: silk lanterns</p>
+    </section>
+
+    <!-- ===================================================
+         WILLKOMMEN
+         =================================================== -->
+    <section class="willkommen abschnitt" id="ueber-uns" aria-labelledby="willkommen-titel" data-erscheinen>
+      <p class="zierzeile" aria-hidden="true"><span></span></p>
+      <h2 id="willkommen-titel">Welcome to Anh Em</h2>
+      <p class="willkommen__text">
+        At Anh Em you get both: Vietnamese classics such as phở, curries and dishes from the
+        wok – and fresh sushi, from maki to our special rolls. At lunchtime there is our lunch
+        menu, in the evening the full menu, to eat in or take away.
+      </p>
+      <div class="knopfreihe knopfreihe--mitte">
+        <a class="knopf knopf--rand" href="tel:+4995616758245">Call us</a>
+        <a class="knopf knopf--rand" href="#reservieren">Book a table</a>
+        <a class="knopf knopf--rand" href="https://www.google.com/maps/search/?api=1&amp;query=Anh+Em+Bahnhofstra%C3%9Fe+11+96450+Coburg" rel="noopener" target="_blank">Get directions</a>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         HIGHLIGHTS
+         Zwei Reihen: Bild und Text, jeweils mit Empfehlungen.
+         =================================================== -->
+    <section class="kuechen" aria-labelledby="kuechen-titel">
+      <div class="abschnitt__kopf" data-erscheinen>
+        <p class="zierzeile" aria-hidden="true"><span></span></p>
+        <h2 id="kuechen-titel">Our highlights</h2>
+      </div>
+
+      <article class="kueche" data-erscheinen>
+        <figure class="kueche__bild">
+          <img src="../images/fotos/kraeuter-800.webp" width="800" height="531" loading="lazy"
+               alt="Fresh Vietnamese herbs and salad on a plate">
+        </figure>
+        <div class="kueche__text">
+          <h3>Vietnamese specialities</h3>
+          <p>Fresh herbs, coconut milk, lemongrass and rice noodles. And curries you can order
+             with baked salmon, crispy duck or tofu.</p>
+          <ul class="empfehlungen">
+            <li><span>Mango Curry</span><span class="zahlen">301</span></li>
+            <li><span>Pho Nam Dinh</span><span class="zahlen">310</span></li>
+            <li><span>Bun Ha Tinh</span><span class="zahlen">305</span></li>
+          </ul>
+          <a class="textlink" href="#karte" data-reiter="0">To the kitchen menu</a>
+        </div>
+      </article>
+
+      <article class="kueche kueche--gespiegelt" data-erscheinen>
+        <figure class="kueche__bild">
+          <img src="../images/fischdruck-bonito-800.webp" width="800" height="546" loading="lazy"
+               alt="Woodblock print of a blue bonito fish by Utagawa Hiroshige, c. 1832">
+        </figure>
+        <div class="kueche__text">
+          <h3>Sushi &amp; special rolls</h3>
+          <p>Classic maki and nigiri, flame-seared aburi, crispy tempura rolls and our own
+             special rolls. Large platters for two or three people.</p>
+          <ul class="empfehlungen">
+            <li><span>Salmon Volcano</span><span class="zahlen">D81</span></li>
+            <li><span>Crispy Tiger</span><span class="zahlen">D84</span></li>
+            <li><span>Anh Em for 2</span><span class="zahlen">M9</span></li>
+          </ul>
+          <a class="textlink" href="#karte" data-reiter="1">To the sushi menu</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================================================
+         RESERVIEREN (Bildband)
+         =================================================== -->
+    <section class="band" id="reservieren" aria-labelledby="reservieren-titel">
+      <img class="band__bild" loading="lazy"
+           src="../images/fotos/laternen-leuchtend-1600.webp"
+           srcset="../images/fotos/laternen-leuchtend-800.webp 800w, ../images/fotos/laternen-leuchtend-1600.webp 1600w"
+           sizes="100vw" width="1600" height="1067"
+           alt="A hand placing a glowing paper lantern among other lanterns">
+      <div class="band__inhalt" data-erscheinen>
+        <h2 id="reservieren-titel">Book a table</h2>
+        <p>Calling is quickest. You are also welcome to email us – we will get back to you.</p>
+        <a class="band__telefon zahlen" href="tel:+4995616758245">+49 9561 6758245</a>
+        <div class="knopfreihe knopfreihe--mitte">
+          <a class="knopf knopf--rot" href="tel:+4995616758245">Call now</a>
+          <a class="knopf knopf--hell" href="mailto:restaurantanhem@gmail.com?subject=Table%20booking&amp;body=Name%3A%20%0ADate%3A%20%0ATime%3A%20%0AGuests%3A%20">Send an email</a>
+        </div>
+        <p class="band__zeiten">Daily 11 am–3 pm and 5–10 pm</p>
+      </div>
+      <p class="bildort">Mood picture: paper lanterns</p>
+    </section>
+
+    <!-- ===================================================
+         SPEISEKARTE
+         Der Inhalt kommt aus js/speisekarte-daten.js und wird
+         von js/speisekarte.js hier eingesetzt (mit Reitern).
+         =================================================== -->
+    <section class="karte abschnitt" id="karte" aria-labelledby="karte-titel">
+      <div class="abschnitt__kopf" data-erscheinen>
+        <p class="zierzeile" aria-hidden="true"><span></span></p>
+        <h2 id="karte-titel">Menu</h2>
+        <p>Every dish is also available to take away.</p>
+      </div>
+
+      <div id="speisekarte" class="karte__inhalt">
+        <noscript>
+          <p class="karte__hinweis">The menu needs JavaScript. Feel free to call us: +49 9561 6758245.</p>
+        </noscript>
+      </div>
+      <div id="allergene-legende" class="karte__legende"></div>
+      <p class="karte__hinweis">
+        All prices in euros including VAT. Letters stand for allergens, numbers for
+        additives. Our team is happy to help with any questions.
+      </p>
+    </section>
+
+    <!-- ===================================================
+         EINDRÜCKE (Fotoraster)
+         Vorläufig Stimmungsbilder aus Vietnam und Japan, jeweils mit
+         Ortsangabe. Sobald es eigene Fotos gibt, hier austauschen.
+         =================================================== -->
+    <section class="eindruecke abschnitt" id="eindruecke" aria-labelledby="eindruecke-titel">
+      <div class="abschnitt__kopf" data-erscheinen>
+        <p class="zierzeile" aria-hidden="true"><span></span></p>
+        <h2 id="eindruecke-titel">Impressions</h2>
+        <p>Vietnam and Japan – where our dishes come from.</p>
+      </div>
+
+      <ul class="fotoraster">
+        <li><figure><img src="../images/fotos/laternen-laden-800.webp" width="800" height="534" loading="lazy" alt="Colourful lanterns in a shop"><figcaption>Lanterns</figcaption></figure></li>
+        <li><figure><img src="../images/fischdruck-fliegender-fisch-800.webp" width="800" height="556" loading="lazy" alt="Woodblock print of a flying fish"><figcaption>Hiroshige, c. 1840</figcaption></figure></li>
+        <li><figure><img src="../images/fotos/halong-bucht-800.webp" width="800" height="600" loading="lazy" alt="Limestone cliffs and boats in Halong Bay"><figcaption>Halong Bay</figcaption></figure></li>
+        <li><figure><img src="../images/fotos/laterne-museum-800.webp" width="800" height="1200" loading="lazy" alt="Golden silk lantern"><figcaption>Silk lantern, Hanoi</figcaption></figure></li>
+        <li><figure><img src="../images/fotos/reisterrassen-800.webp" width="800" height="600" loading="lazy" alt="Green and golden rice terraces in the mountains"><figcaption>Rice terraces</figcaption></figure></li>
+        <li><figure><img src="../images/fotos/kraeuter-800.webp" width="800" height="531" loading="lazy" alt="Fresh herbs on a plate"><figcaption>Fresh herbs</figcaption></figure></li>
+        <li><figure><img src="../images/fischmarkt-osaka-800.webp" width="800" height="520" loading="lazy" alt="Woodblock print of a fish market in Osaka"><figcaption>Fish market, Osaka</figcaption></figure></li>
+        <li><figure><img src="../images/fotos/laterne-nacht-800.webp" width="800" height="534" loading="lazy" alt="A glowing lantern against night lights"><figcaption>Lantern at night</figcaption></figure></li>
+        <li><figure><img src="../images/fotos/reisfelder-800.webp" width="800" height="545" loading="lazy" alt="Wide green rice fields"><figcaption>Rice fields</figcaption></figure></li>
+        <li><figure><img src="../images/coburg-bahnhof-800.webp" width="800" height="450" loading="lazy" alt="Coburg railway station building"><figcaption>Coburg station</figcaption></figure></li>
+      </ul>
+
+      <p class="mitte">
+        <a class="knopf knopf--rand" href="https://www.instagram.com/anhemrestaurant.coburg/" rel="noopener">More on Instagram</a>
+      </p>
+    </section>
+
+    <!-- ===================================================
+         BESUCH: Karte (Zwei-Klick) und Adresse/Zeiten
+         Google Maps wird erst nach einem Klick geladen (Datenschutz).
+         =================================================== -->
+    <section class="besuch abschnitt" id="besuch" aria-labelledby="besuch-titel">
+      <div class="karte-zwei-klick" id="karte-zwei-klick">
+        <img src="../images/coburg-bahnhof-1600.webp"
+             srcset="../images/coburg-bahnhof-800.webp 800w, ../images/coburg-bahnhof-1600.webp 1600w"
+             sizes="(min-width: 900px) 50vw, 100vw"
+             width="1600" height="900" loading="lazy"
+             alt="Coburg railway station building">
+        <div class="karte-zwei-klick__hinweis">
+          <button type="button" class="knopf knopf--rot" id="karte-laden">Show map</button>
+          <p>Loading the map sends data to Google.
+             More in our <a href="privacy.html#google-maps">privacy policy</a>.</p>
+        </div>
+      </div>
+
+      <div class="besuch__text" data-erscheinen>
+        <h2 id="besuch-titel">Visit us</h2>
+        <p class="besuch__adresse">
+          Anh Em<br>
+          Bahnhofstraße 11<br>
+          96450 Coburg
+        </p>
+
+        <h3>Opening hours</h3>
+        <table class="zeiten">
+          <caption class="nur-vorlesen">Opening hours</caption>
+          <tbody>
+            <tr><th scope="row">Monday to Sunday</th><td class="zahlen">11 am–3 pm<br>5–10 pm</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Contact</h3>
+        <p>
+          <a href="tel:+4995616758245" class="zahlen">+49 9561 6758245</a><br>
+          <a href="mailto:restaurantanhem@gmail.com">restaurantanhem@gmail.com</a>
+        </p>
+
+        <p><a class="textlink" href="https://www.google.com/maps/search/?api=1&amp;query=Anh+Em+Bahnhofstra%C3%9Fe+11+96450+Coburg"
+              rel="noopener" target="_blank">Open route in Google Maps</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================
+       FUSS (Footer)
+       =================================================== -->
+  <footer class="fuss">
+    <div class="fuss__inhalt">
+      <div class="fuss__marke">
+        <img src="../images/logo-hell-klein.png" width="320" height="320" alt="Anh Em – Asian Cuisine & Sushi Bar">
+      </div>
+      <div>
+        <h2 class="fuss__titel">Address</h2>
+        <p>Bahnhofstraße 11<br>96450 Coburg</p>
+      </div>
+      <div>
+        <h2 class="fuss__titel">Opening hours</h2>
+        <p>Monday to Sunday<br>11 am–3 pm and 5–10 pm</p>
+      </div>
+      <div>
+        <h2 class="fuss__titel">Contact</h2>
+        <p><a href="tel:+4995616758245" class="zahlen">+49 9561 6758245</a><br>
+           <a href="mailto:restaurantanhem@gmail.com">restaurantanhem@<wbr>gmail.com</a><br>
+           <a href="https://www.instagram.com/anhemrestaurant.coburg/" rel="noopener">Instagram</a></p>
+      </div>
+    </div>
+
+    <div class="fuss__unten">
+      <p>© 2026 Anh Em Restaurant</p>
+      <p>
+        <a href="imprint.html">Imprint</a> ·
+        <a href="privacy.html">Privacy</a> ·
+        <a href="imprint.html#credits">Picture credits</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Skripte am Ende, damit die Seite zuerst sichtbar ist.
+       Reihenfolge wichtig: erst die Daten, dann das Skript, das sie benutzt. -->
+  <script src="../js/navigation.js"></script>
+  <script src="../js/speisekarte-daten.js"></script>
+  <script src="../js/speisekarte.js"></script>
+  <script src="../js/oeffnungszeiten.js"></script>
+  <script src="../js/karte-zwei-klick.js"></script>
+  <script src="../js/bewegung.js"></script>
+</body>
+</html>

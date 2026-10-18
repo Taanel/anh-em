@@ -1,0 +1,231 @@
+/* =========================================================
+   layout.css – Wo was auf der Seite steht
+   Kopfleiste, Abschnitte, Spalten, Footer.
+   Zuerst Handy (schmal), dann ab 900px breit = Desktop.
+   ========================================================= */
+
+/* ---------- Allgemeiner Abschnitt ---------- */
+
+.abschnitt {
+  padding: var(--abschnitt) var(--rand);
+}
+
+/* Kopf eines Abschnitts: Zierlinie, Überschrift, ein Satz – mittig */
+.abschnitt__kopf {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+/* ---------- Kopfleiste (fest oben) ---------- */
+
+.kopfleiste {
+  position: sticky; /* bleibt beim Scrollen oben kleben */
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: var(--kopf-hoehe);
+  padding: 0 var(--rand);
+  background: var(--grund);
+  transition: box-shadow var(--dauer) var(--kurve);
+}
+
+/* js/navigation.js setzt diese Klasse, sobald man etwas gescrollt hat */
+.kopfleiste.ist-gescrollt {
+  box-shadow: 0 1px 0 rgb(43 33 28 / 0.08), 0 8px 24px rgb(43 33 28 / 0.06);
+}
+
+/* Handy: Menü ist ein aufklappbares Feld unter der Leiste */
+.hauptmenue {
+  position: absolute;
+  top: var(--kopf-hoehe);
+  left: 0;
+  right: 0;
+  display: none;
+  padding: 1rem var(--rand) 1.5rem;
+  background: var(--grund);
+  box-shadow: var(--schatten);
+}
+.hauptmenue.ist-offen {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Desktop: Menü steht direkt in der Leiste, kein Menüknopf */
+@media (min-width: 900px) {
+  .hauptmenue {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+/* ---------- Großes Bild (Held) ---------- */
+
+.held {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: calc(100svh - var(--kopf-hoehe));
+  padding: 4rem var(--rand);
+  overflow: hidden;
+  isolation: isolate; /* eigene Ebene: Bild (z-index -2) bleibt hinter dem Text, aber vor dem Seitenhintergrund */
+  color: var(--hell);
+  text-align: center;
+}
+
+/* ---------- Willkommen ---------- */
+
+.willkommen {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ---------- Zwei Küchen ---------- */
+
+.kuechen {
+  display: grid;
+  gap: var(--abschnitt);
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 0 var(--rand) var(--abschnitt);
+}
+
+.kueche {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .kueche {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+  }
+  /* Zweite Küche: Bild rechts, Text links */
+  .kueche--gespiegelt .kueche__bild {
+    order: 2;
+  }
+}
+
+/* ---------- Bildband "Reservieren" ---------- */
+
+.band {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 80svh;
+  padding: var(--abschnitt) var(--rand);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--hell);
+  text-align: center;
+}
+
+/* ---------- Speisekarte ---------- */
+
+.karte {
+  background: var(--grund-2);
+}
+
+.karte__inhalt,
+.karte__legende,
+.karte__hinweis {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Eindrücke (Fotoraster) ---------- */
+
+.fotoraster {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Handy: 2 Spalten */
+  gap: 6px;
+  max-width: 90rem;
+  margin: 0 auto 2.5rem;
+}
+
+@media (min-width: 700px) {
+  .fotoraster { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1100px) {
+  .fotoraster { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* ---------- Besuch: Karte + Adresse ---------- */
+
+.besuch {
+  display: grid;
+  gap: 2.5rem;
+  max-width: var(--breite);
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .besuch {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+}
+
+/* ---------- Fuß (Footer) ---------- */
+
+.fuss {
+  padding: 4rem var(--rand) 2rem;
+  background: var(--nacht);
+  color: var(--hell);
+}
+
+.fuss__inhalt {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: var(--breite);
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .fuss__inhalt {
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+  }
+}
+
+.fuss__marke {
+  grid-column: 1 / -1;
+}
+@media (min-width: 900px) {
+  .fuss__marke { grid-column: auto; }
+}
+
+.fuss__unten {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  max-width: var(--breite);
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(251 248 243 / 0.15);
+}
+
+/* ---------- Unterseiten (Impressum, Datenschutz) ---------- */
+
+.rechtstext {
+  width: min(44rem, 100% - 2 * var(--rand));
+  margin: 3rem auto var(--abschnitt);
+}
+
+/* Überschrift "Unsere Highlights": der große Abstand der Reihen reicht, kein zusätzlicher Rand */
+.kuechen .abschnitt__kopf {
+  margin-bottom: 0;
+}

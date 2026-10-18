@@ -1,0 +1,8 @@
+# Nicht veröffentlichen:
+# Rohmaterial vom Restaurant (gedruckte Karte, Fotos, offene Fragen)
+material/
+# Originale der frei lizenzierten Bilder (Nachweise stehen im Impressum)
+assets/
+# Arbeitsdateien der Design-Werkzeuge
+.taste-skill/
+.DS_Store

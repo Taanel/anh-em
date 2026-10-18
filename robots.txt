@@ -1,0 +1,4 @@
+# Vorschau: Suchmaschinen sollen die Seite noch nicht aufnehmen.
+# Sobald die Seite fertig ist, die zweite Zeile durch "Allow: /" ersetzen.
+User-agent: *
+Disallow: /
