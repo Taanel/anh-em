@@ -12,6 +12,7 @@ Website for a friend's restaurant in Bavaria, Germany. Static site, plain HTML/C
 - `css/`: `tokens.css` (colors, fonts, spacing; the single source of the look), `base.css` (reset, typography), `layout.css` (grid, sections), `components.css` (buttons, menu, header, footer).
 - `js/speisekarte-daten.js`: the menu as data (DE + EN, prices, allergens). The only place to edit dishes. A `.js` file, not `.json`, because `fetch` fails on file://.
 - `js/speisekarte.js` renders the menu, `js/oeffnungszeiten.js` shows "open now", `js/karte-zwei-klick.js` loads Google Maps only after a click.
+- `js/intro-video.js` + `videos/anh-em-intro.mp4`: hero video, a compressed copy from the independent project `anh-em-intro/` (never reference that folder from the site). Autoplay muted, once, stops on the last frame; pause and sound buttons; reduced motion shows the poster `images/intro-standbild.webp`.
 - `js/navigation.js`: sticky header, mobile menu toggle (aria-expanded), shadow on scroll.
 - `js/bewegung.js`: scroll entrances (`data-erscheinen`); `<html class="js">` is set inline in the head so content stays visible without JS.
 - `fonts/`: self-hosted Playfair Display (variable) + Be Vietnam Pro (400/500/600), latin/latin-ext/vietnamese subsets, OFL licences. `images/`: logo variants, emblem, Hiroshige prints, station; `images/fotos/`: CC0 mood photos.

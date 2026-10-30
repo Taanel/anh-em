@@ -67,18 +67,41 @@
   }
 }
 
-/* ---------- Großes Bild (Held) ---------- */
+/* ---------- Intro-Video (Held) ---------- */
 
+/* Handy: quadratischer Ausschnitt, damit Logo und Schrift groß genug bleiben.
+   Das Video steht oben, die Leiste mit den Knöpfen direkt darunter. */
 .held {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: calc(100svh - var(--kopf-hoehe));
-  padding: 4rem var(--rand);
-  overflow: hidden;
-  isolation: isolate; /* eigene Ebene: Bild (z-index -2) bleibt hinter dem Text, aber vor dem Seitenhintergrund */
+  background: var(--film-grund);
   color: var(--hell);
   text-align: center;
+}
+.held__film {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+/* Tablet hochkant: das ganze Video im Format 16:9 */
+@media (min-width: 700px) {
+  .held__film {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Breite Bildschirme: Video + Leiste füllen genau den ersten Bildschirm.
+   Das Video passt sich der freien Höhe an (1fr = der ganze Rest). */
+@media (min-width: 700px) and (min-aspect-ratio: 4 / 3) {
+  .held {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    height: calc(100svh - var(--kopf-hoehe));
+    min-height: 480px;
+  }
+  .held__film {
+    aspect-ratio: auto;
+    min-height: 0;
+  }
 }
 
 /* ---------- Willkommen ---------- */

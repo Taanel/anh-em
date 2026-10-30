@@ -108,32 +108,36 @@
   <main id="inhalt">
 
     <!-- ===================================================
-         GROSSES BILD MIT NAME
+         INTRO-VIDEO
          =================================================== -->
     <section class="held" id="oben" aria-labelledby="held-titel">
-      <img class="held__bild" fetchpriority="high"
-           src="images/fotos/laternen-decke-1920.webp"
-           srcset="images/fotos/laternen-decke-960.webp 960w, images/fotos/laternen-decke-1920.webp 1920w"
-           sizes="100vw" width="1920" height="1080"
-           alt="Viele bunte Seidenlaternen leuchten unter einer Holzdecke">
-      <div class="held__inhalt">
-        <img class="held__emblem" src="images/emblem.webp" width="400" height="400" alt="">
-        <h1 class="held__titel" id="held-titel">Anh Em</h1>
-        <p class="held__unterzeile">Vietnamesische Küche &amp; Sushi-Bar in Coburg</p>
+      <h1 class="nur-vorlesen" id="held-titel">Anh Em – Vietnamesische Küche &amp; Sushi-Bar in Coburg</h1>
 
-        <!-- Live-Anzeige: js/oeffnungszeiten.js setzt hier den aktuellen Stand ein.
-             Ohne JavaScript bleibt dieser Text stehen. -->
+      <!-- Intro-Video: zeigt selbst Logo, Name und Adresse, deshalb kein Text darüber.
+           js/intro-video.js startet es und blendet die eigenen Knöpfe ein. -->
+      <div class="held__film">
+        <video class="held__video" id="intro-video" muted playsinline controls preload="auto"
+               poster="images/intro-standbild.webp" width="1920" height="1080"
+               aria-label="Intro-Video: Laternen, dann entsteht das Logo von Anh Em mit dem Fisch. Am Ende stehen dort der Name, Vietnamesische Küche und Sushi-Bar sowie die Adresse Bahnhofstraße 11, Coburg.">
+          <source src="videos/anh-em-intro.mp4" type="video/mp4">
+        </video>
+        <div class="held__steuerung" id="intro-steuerung" role="group" aria-label="Intro-Video steuern" hidden>
+          <button type="button" class="filmknopf" id="intro-spielen">Abspielen</button>
+          <button type="button" class="filmknopf" id="intro-ton">Ton an</button>
+        </div>
+      </div>
+
+      <!-- Leiste unter dem Video: Live-Anzeige (js/oeffnungszeiten.js) und die zwei Hauptknöpfe -->
+      <div class="held__leiste">
         <p class="held__status">
           <span class="punkt" id="status-punkt" aria-hidden="true"></span>
           <span id="status">Täglich 11–15 und 17–22 Uhr</span><span id="status-detail"></span>
         </p>
-
-        <div class="knopfreihe knopfreihe--mitte">
+        <div class="knopfreihe">
           <a class="knopf knopf--rot" href="#reservieren">Tisch reservieren</a>
           <a class="knopf knopf--hell" href="#karte">Zur Speisekarte</a>
         </div>
       </div>
-      <p class="bildort">Stimmungsbild: Seidenlaternen</p>
     </section>
 
     <!-- ===================================================
@@ -361,6 +365,7 @@
   <!-- Skripte am Ende, damit die Seite zuerst sichtbar ist.
        Reihenfolge wichtig: erst die Daten, dann das Skript, das sie benutzt. -->
   <script src="js/navigation.js"></script>
+  <script src="js/intro-video.js"></script>
   <script src="js/speisekarte-daten.js"></script>
   <script src="js/speisekarte.js"></script>
   <script src="js/oeffnungszeiten.js"></script>

@@ -56,6 +56,7 @@
   --gold-text: #87621f;     /* dunkleres Gold für Text (gut lesbar auf Creme) */
   --nacht: #1d1613;         /* dunkle Flächen: Footer, Bild-Abdunklung */
   --hell: #fbf8f3;          /* heller Text auf dunklen Flächen */
+  --film-grund: #060403;    /* Randfarbe des Intro-Videos, damit es nahtlos in die Fläche übergeht */
 
   /* --- Schriften --- */
   --schrift-titel: "Playfair Display", Georgia, serif;
@@ -67,7 +68,6 @@
   --groesse-gross: clamp(1.125rem, 1.05rem + 0.4vw, 1.3rem);  /* 18–21px */
   --groesse-h3: clamp(1.35rem, 1.2rem + 0.6vw, 1.6rem);
   --groesse-h2: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
-  --groesse-held: clamp(3.25rem, 2rem + 6vw, 7rem);           /* "Anh Em" im großen Bild */
 
   /* --- Abstände --- */
   --rand: clamp(1rem, 0.5rem + 2.5vw, 3rem);       /* Seitenrand links/rechts */

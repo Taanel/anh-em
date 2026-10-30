@@ -2,7 +2,7 @@
 
 Gestaltungsregeln dieser Website (Stand Oktober 2026, zweite Fassung).
 Wunsch des Inhabers: klassisch, warm und einladend wie eine gehobene Restaurant-Website,
-mit großem Foto oben, klassischer Navigation und Fotoraster. Die erste, experimentelle
+mit großem Intro-Video oben, klassischer Navigation und Fotoraster. Die erste, experimentelle
 Fassung („Name als Monument“, dunkel, Blockschrift) wurde verworfen.
 
 ## Grundidee
@@ -29,7 +29,7 @@ Die Farben kommen aus dem Logo und der gedruckten Speisekarte: **Rot** für Akti
 ## Aufbau der Startseite
 
 1. Feste Kopfleiste: Emblem + „ANH EM“, Menü, roter Knopf „Reservieren“. Handy: Menüknopf ☰.
-2. Großes Stimmungsfoto mit Name, Unterzeile, Live-Status „Jetzt geöffnet“, zwei Knöpfe.
+2. Intro-Video (eigene Produktion, zeigt selbst Logo, Name und Adresse, darum kein Text darüber). Darunter eine dunkle Leiste mit Live-Status und zwei Knöpfen. Handy: quadratischer Ausschnitt.
 3. Willkommen (zentriert) mit Knöpfen Anrufen / Reservieren / Route.
 4. Unsere Highlights: „Vietnamesische Spezialitäten“ und „Sushi & Special Rolls“, Bild + Text + drei Empfehlungen, abwechselnd links/rechts. (Keine Namensdeutung „Anh em = Brüder“ – vom Inhaber-Umfeld als unpassend empfunden.)
 5. Bildband „Tisch reservieren“ mit großer Telefonnummer.
@@ -45,5 +45,5 @@ Die Farben kommen aus dem Logo und der gedruckten Speisekarte: **Rot** für Akti
 - Stimmungsbilder bekommen immer eine Orts-/Bildangabe („Stimmungsbild: …“), damit niemand
   sie für das Restaurant selbst hält. Sobald eigene Fotos da sind, diese bevorzugen.
 - Keine Fotos fremder Gerichte als „unser Essen“.
-- Bewegung: langsamer Zoom im großen Bild, sanftes Einblenden beim Scrollen, Hover auf Knöpfen und Fotos.
+- Bewegung: Intro-Video (einmal, stumm, Pause- und Tonknopf; bei „weniger Bewegung“ nur Standbild), sanftes Einblenden beim Scrollen, Hover auf Knöpfen und Fotos.
   Bei „weniger Bewegung“ ist alles still.
