@@ -20,6 +20,7 @@ anh-em/
 │   └── components.css    Einzelne Bausteine (Knöpfe, Speisekarte, Fotoraster, Footer, Animationen)
 ├── js/
 │   ├── intro-video.js         Hintergrund-Video oben: Autostart ohne Ton, kleiner Pause-Knopf
+│   ├── raster-video.js        Video im Fotoraster: läuft nur, solange es sichtbar ist
 │   ├── navigation.js          Kopfleiste: Handy-Menü auf/zu, Schatten beim Scrollen
 │   ├── speisekarte-daten.js   DIE Speisekarte: alle Gerichte, Preise, Allergene (DE + EN)
 │   ├── speisekarte.js         baut die Karte: Reiter, Vegetarisch-Filter, Allergen-Legende
@@ -27,9 +28,9 @@ anh-em/
 │   ├── karte-zwei-klick.js    Google Maps erst nach Klick laden (Datenschutz)
 │   └── bewegung.js            sanftes Einblenden beim Scrollen
 ├── fonts/                Schriften "Playfair Display" und "Be Vietnam Pro", lokal + Lizenzen
-├── images/               Logo, Emblem, Hiroshige-Drucke, Bahnhofsbild (WebP/PNG)
-│   └── fotos/            Stimmungsfotos (Laternen, Halong-Bucht, Reisfelder …) → später eigene Fotos
-├── videos/               Hintergrund-Video oben auf der Seite (komprimiert, ohne Ton)
+├── images/               Logo, Emblem, Standbild des Videos
+│   └── fotos/            Fotos aus dem Restaurant
+├── videos/               Hintergrund-Video oben und kurzes Sushi-Video (komprimiert, ohne Ton)
 ├── favicon.png           Symbol im Browser-Tab
 ├── assets/               Originale der frei lizenzierten Bilder + credits.json (Quellen/Lizenzen)
 ├── material/             Rohmaterial vom Restaurant (gedruckte Karte, Logo). Nicht veröffentlichen!
@@ -60,9 +61,9 @@ An **drei** Stellen, jeweils in `index.html` und `en/index.html`:
 
 ### Fotos austauschen
 Neue Fotos zuerst verkleinern (z. B. 800 px und 1600 px breit, als WebP) und in `images/fotos/` legen.
-Wichtigste Stellen: das Bildband „Tisch reservieren“ (`band__bild`),
-die zwei Küchen-Bilder und das Fotoraster „Eindrücke“. Die kleine Angabe „Stimmungsbild: …“ entfernen,
-sobald dort ein echtes Foto aus dem Restaurant steht.
+Stellen: das Bildband „Tisch reservieren“ (`band__bild`), die zwei Highlight-Bilder, das Fotoraster „Eindrücke“
+und das Bild vor der Karte. Beim Kräuter-Foto (noch ein Stimmungsbild) die Angabe „Stimmungsbild: …“ entfernen,
+sobald dort ein eigenes Foto eines vietnamesischen Gerichts steht, und den Nachweis im Impressum löschen.
 Dann im HTML den Dateinamen und den `alt`-Text (Bildbeschreibung) ändern. Werden die alten
 frei lizenzierten Bilder entfernt, auch die Bildnachweise im Impressum und Footer anpassen.
 
@@ -78,6 +79,10 @@ Das Original mit Musik liegt in `material/intro-video-original-mit-ton.mp4` (wir
 
 ### Farben oder Schriftgrößen ändern
 Nur in `css/tokens.css`. Alle anderen Dateien benutzen diese Werte.
+
+### Social-Media-Links ändern
+Die Adressen stehen in `index.html` und `en/index.html`: bei den Knöpfen unter „Eindrücke“, im Footer
+und oben bei `sameAs`. Die QR-Codes in `material/` sind für Gedrucktes (Speisekarte, Aufsteller, Fenster).
 
 ## Datenschutz – bitte beibehalten
 

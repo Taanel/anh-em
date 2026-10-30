@@ -340,15 +340,6 @@ h3 {
 .punkt.ist-offen { background: #5bbf7a; }  /* grün = geöffnet */
 .punkt.ist-zu { background: #e0796f; }     /* hellrot = geschlossen */
 
-/* Kleine Ortsangabe unten rechts auf Stimmungsbildern */
-.bildort {
-  position: absolute;
-  right: var(--rand);
-  bottom: 1rem;
-  font-size: 0.75rem;
-  opacity: 0.8;
-}
-
 /* ---------- Willkommen ---------- */
 
 .willkommen__text {
@@ -608,16 +599,44 @@ h3 {
 .fotoraster figure:hover img {
   transform: scale(1.06);
 }
-/* Bildunterschrift unten im Bild, auf dunklem Verlauf */
-.fotoraster figcaption {
+/* Das Video im Raster füllt seine Kachel, was übersteht wird abgeschnitten */
+.fotoraster__film {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--nacht);
+}
+.fotoraster__film video {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 2rem 0.75rem 0.6rem;
-  background: linear-gradient(transparent, rgb(29 22 19 / 0.7));
-  color: var(--hell);
-  font-size: 0.8rem;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Kleine Angabe unter Stimmungsbildern, damit niemand sie für das Restaurant hält */
+.bildhinweis {
+  margin-top: 0.4rem;
+  color: var(--tinte-weich);
+  font-size: 0.75rem;
+}
+
+/* Knöpfe zu Instagram, Facebook und TikTok */
+.sozial__titel {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.sozial {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.sozialknopf {
+  gap: 0.6rem;
+}
+.fuss__sozial .sozial {
+  justify-content: flex-start;
 }
 
 /* ---------- Besuch: Karte + Adresse ---------- */

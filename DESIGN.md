@@ -34,7 +34,7 @@ Die Farben kommen aus dem Logo und der gedruckten Speisekarte: **Rot** für Akti
 4. Unsere Highlights: „Vietnamesische Spezialitäten“ und „Sushi & Special Rolls“, Bild + Text + drei Empfehlungen, abwechselnd links/rechts. (Keine Namensdeutung „Anh em = Brüder“ – vom Inhaber-Umfeld als unpassend empfunden.)
 5. Bildband „Tisch reservieren“ mit großer Telefonnummer.
 6. Speisekarte: Reiter (Küche, Sushi, Desserts, Getränke), Vegetarisch-Filter, aufklappbare Kategorien.
-7. Eindrücke: Fotoraster (5 Spalten Desktop, 2 Handy) mit Bildunterschriften.
+7. Eindrücke: Fotoraster mit echten Fotos und kurzem Video (4 Spalten Desktop, 2 Handy), darunter Knöpfe zu Instagram, Facebook und TikTok.
 8. Besuch: Karte (erst nach Klick) + Adresse, Zeiten, Kontakt.
 9. Dunkler Footer.
 
@@ -42,8 +42,7 @@ Die Farben kommen aus dem Logo und der gedruckten Speisekarte: **Rot** für Akti
 
 - Knöpfe rund (Pillenform), Karten und Bilder mit 6 px Ecken.
 - Über jeder Abschnittsüberschrift die goldene Zierzeile (Linie – Raute – Linie).
-- Stimmungsbilder bekommen immer eine Orts-/Bildangabe („Stimmungsbild: …“), damit niemand
-  sie für das Restaurant selbst hält. Sobald eigene Fotos da sind, diese bevorzugen.
+- Eigene Fotos bevorzugen. Das letzte Stimmungsbild trägt die Angabe „Stimmungsbild: …“, damit niemand es für das Restaurant selbst hält.
 - Keine Fotos fremder Gerichte als „unser Essen“.
 - Bewegung: Hintergrund-Video (einmal, stumm, bleibt auf dem Logo stehen; bei „weniger Bewegung“ nur Standbild), sanftes Einblenden beim Scrollen, Hover auf Knöpfen und Fotos.
   Bei „weniger Bewegung“ ist alles still.

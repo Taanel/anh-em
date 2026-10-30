@@ -13,9 +13,10 @@ Website for a friend's restaurant in Bavaria, Germany. Static site, plain HTML/C
 - `js/speisekarte-daten.js`: the menu as data (DE + EN, prices, allergens). The only place to edit dishes. A `.js` file, not `.json`, because `fetch` fails on file://.
 - `js/speisekarte.js` renders the menu, `js/oeffnungszeiten.js` shows "open now", `js/karte-zwei-klick.js` loads Google Maps only after a click.
 - `js/intro-video.js` + `videos/anh-em-intro.mp4`: full-bleed background video in the hero (like a mood video, no player look): autoplay, muted, no audio track, plays once and stops on the last frame; small pause button; reduced motion shows the poster `images/intro-standbild.webp`. The video contains logo, name and address, so no centered text on top. The original with music is `material/intro-video-original-mit-ton.mp4` (not published); its render source was deleted on the owner's request.
+- `js/raster-video.js` + `videos/sushi-platten.mp4`: muted loop in the photo grid, plays only while visible, pause button. Clip 11.85–31.9 s of the owner's video, chosen because no guests are visible.
 - `js/navigation.js`: sticky header, mobile menu toggle (aria-expanded), shadow on scroll.
 - `js/bewegung.js`: scroll entrances (`data-erscheinen`); `<html class="js">` is set inline in the head so content stays visible without JS.
-- `fonts/`: self-hosted Playfair Display (variable) + Be Vietnam Pro (400/500/600), latin/latin-ext/vietnamese subsets, OFL licences. `images/`: logo variants, emblem, Hiroshige prints, station; `images/fotos/`: CC0 mood photos.
+- `fonts/`: self-hosted Playfair Display (variable) + Be Vietnam Pro (400/500/600), latin/latin-ext/vietnamese subsets, OFL licences. `images/`: logo variants, emblem, Hiroshige prints, station; `images/fotos/`: the restaurant's photos, one CC0 mood photo.
 - `en/index.html` was generated from `index.html` (same markup, translated text, `../` paths). Keep both in sync by hand.
 - `assets/`: originals of the open-licence pictures + `credits.json` (taste-skill `assets.mjs`). Credits are listed in the Impressum (`#bildnachweise`) and footer.
 - `material/`: raw material from the restaurant (printed menu pages, logo, `restaurant-infos.md` with open questions). Never published, never referenced by pages.
@@ -27,7 +28,8 @@ Website for a friend's restaurant in Bavaria, Germany. Static site, plain HTML/C
 - **Reservation:** `tel:` and `mailto:` links only. No form (would need a server).
 - **Both languages are first-class:** every text change goes into the DE and EN page; every dish needs `de` and `en`.
 - **Design:** the owner rejected the first experimental taste-skill direction and asked for a classic, warm restaurant look (reference: a well-known upscale restaurant site; take principles only, never copy). Current rules are in `DESIGN.md`. The owner's taste wins over skill house rules (pill buttons, centered text, cream background are wanted). Use `impeccable` for build/audit, `ui-ux-pro-max` as UX/accessibility checklist.
-- **Pictures:** mood photos (CC0) must carry a visible "Stimmungsbild: …" / caption so nobody mistakes them for the restaurant; never use photos of other restaurants' dishes as if they were Anh Em's.
+- **Pictures:** use the restaurant's own photos and videos (`images/fotos/`, `videos/`). The one remaining stock photo carries a visible "Stimmungsbild" caption; never pass off other restaurants' dishes as Anh Em's. No recognizable guests without consent. Strip audio from social media clips (music rights).
+- **Social media:** plain links only (Instagram, Facebook, TikTok), no embedded feeds. QR codes are for print.
 - **Mobile first:** opening hours, address and phone must be reachable within one scroll on a 375px screen.
 - **Readable code:** identifiers and comments in German, each file starts with a short comment saying what it does. Comment the parts a beginner would get stuck on. No clever tricks.
 - **Motion:** every animation has a `prefers-reduced-motion` fallback; content is visible without JS where possible.
