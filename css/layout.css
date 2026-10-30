@@ -67,11 +67,12 @@
   }
 }
 
-/* ---------- Intro-Video (Held) ---------- */
+/* ---------- Hintergrund-Video (Held) ---------- */
 
 /* Handy: quadratischer Ausschnitt, damit Logo und Schrift groß genug bleiben.
-   Das Video steht oben, die Leiste mit den Knöpfen direkt darunter. */
+   Die Leiste mit den Knöpfen schließt dunkel und nahtlos darunter an. */
 .held {
+  position: relative;
   background: var(--film-grund);
   color: var(--hell);
   text-align: center;
@@ -89,18 +90,20 @@
   }
 }
 
-/* Breite Bildschirme: Video + Leiste füllen genau den ersten Bildschirm.
-   Das Video passt sich der freien Höhe an (1fr = der ganze Rest). */
+/* Breite Bildschirme: Das Video füllt den ganzen ersten Bildschirm als Hintergrund,
+   die Leiste liegt unten darauf. Die Mindesthöhe verhindert, dass auf sehr flachen
+   Bildschirmen oben und unten zu viel vom Video abgeschnitten wird. */
 @media (min-width: 700px) and (min-aspect-ratio: 4 / 3) {
   .held {
-    display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
+    display: flex;
+    align-items: flex-end;
     height: calc(100svh - var(--kopf-hoehe));
-    min-height: 480px;
+    min-height: max(480px, min(50vw, 130svh));
   }
   .held__film {
+    position: absolute;
+    inset: 0;
     aspect-ratio: auto;
-    min-height: 0;
   }
 }
 

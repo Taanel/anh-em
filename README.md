@@ -8,7 +8,7 @@ Man kann die Seite direkt per Doppelklick auf `index.html` im Browser öffnen.
 ## Aufbau
 
 ```
-restaurant-website/
+anh-em/
 ├── index.html            Startseite (Deutsch)
 ├── impressum.html        Impressum (Pflicht)
 ├── datenschutz.html      Datenschutzerklärung (Pflicht)
@@ -19,7 +19,7 @@ restaurant-website/
 │   ├── layout.css        Wo was steht (Kopfleiste, Abschnitte, Spalten), Handy zuerst
 │   └── components.css    Einzelne Bausteine (Knöpfe, Speisekarte, Fotoraster, Footer, Animationen)
 ├── js/
-│   ├── intro-video.js         Intro-Video: Autostart ohne Ton, Knöpfe Pause und Ton
+│   ├── intro-video.js         Hintergrund-Video oben: Autostart ohne Ton, kleiner Pause-Knopf
 │   ├── navigation.js          Kopfleiste: Handy-Menü auf/zu, Schatten beim Scrollen
 │   ├── speisekarte-daten.js   DIE Speisekarte: alle Gerichte, Preise, Allergene (DE + EN)
 │   ├── speisekarte.js         baut die Karte: Reiter, Vegetarisch-Filter, Allergen-Legende
@@ -29,7 +29,7 @@ restaurant-website/
 ├── fonts/                Schriften "Playfair Display" und "Be Vietnam Pro", lokal + Lizenzen
 ├── images/               Logo, Emblem, Hiroshige-Drucke, Bahnhofsbild (WebP/PNG)
 │   └── fotos/            Stimmungsfotos (Laternen, Halong-Bucht, Reisfelder …) → später eigene Fotos
-├── videos/               Intro-Video oben auf der Seite (komprimierte Kopie aus dem Projekt anh-em-intro)
+├── videos/               Hintergrund-Video oben auf der Seite (komprimiert, ohne Ton)
 ├── favicon.png           Symbol im Browser-Tab
 ├── assets/               Originale der frei lizenzierten Bilder + credits.json (Quellen/Lizenzen)
 ├── material/             Rohmaterial vom Restaurant (gedruckte Karte, Logo). Nicht veröffentlichen!
@@ -66,14 +66,15 @@ sobald dort ein echtes Foto aus dem Restaurant steht.
 Dann im HTML den Dateinamen und den `alt`-Text (Bildbeschreibung) ändern. Werden die alten
 frei lizenzierten Bilder entfernt, auch die Bildnachweise im Impressum und Footer anpassen.
 
-### Intro-Video austauschen
-Neue Version aus dem Projekt `anh-em-intro` komprimieren und nach `videos/anh-em-intro.mp4` legen:
+### Hintergrund-Video austauschen
+Neues Video komprimieren und nach `videos/anh-em-intro.mp4` legen (`-an` entfernt den Ton):
 
 ```bash
-ffmpeg -i ../anh-em-intro/ausgabe/anh-em-intro.mp4 -vf fps=30 -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 96k videos/anh-em-intro.mp4
+ffmpeg -i neues-video.mp4 -vf fps=30 -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -an videos/anh-em-intro.mp4
 ```
 
 Danach auch das Standbild `images/intro-standbild.webp` aus dem letzten Bild neu erzeugen.
+Das Original mit Musik liegt in `material/intro-video-original-mit-ton.mp4` (wird nicht hochgeladen).
 
 ### Farben oder Schriftgrößen ändern
 Nur in `css/tokens.css`. Alle anderen Dateien benutzen diese Werte.
@@ -105,7 +106,7 @@ Die Seite liegt als **Vorschau** auf GitHub Pages: **https://taanel.github.io/an
 (Code-Projekt: https://github.com/Taanel/anh-em). Suchmaschinen sind ausgesperrt
 (`noindex` in den Seiten + `robots.txt`), nur wer den Link hat, findet sie.
 
-**Änderungen online stellen** (im Ordner `restaurant-website`):
+**Änderungen online stellen** (im Ordner `anh-em`):
 
 ```sh
 git add -A

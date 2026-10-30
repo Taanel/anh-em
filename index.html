@@ -108,26 +108,27 @@
   <main id="inhalt">
 
     <!-- ===================================================
-         INTRO-VIDEO
+         HINTERGRUND-VIDEO
          =================================================== -->
     <section class="held" id="oben" aria-labelledby="held-titel">
       <h1 class="nur-vorlesen" id="held-titel">Anh Em – Vietnamesische Küche &amp; Sushi-Bar in Coburg</h1>
 
-      <!-- Intro-Video: zeigt selbst Logo, Name und Adresse, deshalb kein Text darüber.
-           js/intro-video.js startet es und blendet die eigenen Knöpfe ein. -->
+      <!-- Hintergrund-Video: füllt den ganzen Bereich und zeigt selbst Logo, Name und
+           Adresse, deshalb kein Text darüber. js/intro-video.js startet es. -->
       <div class="held__film">
-        <video class="held__video" id="intro-video" muted playsinline controls preload="auto"
-               poster="images/intro-standbild.webp" width="1920" height="1080"
-               aria-label="Intro-Video: Laternen, dann entsteht das Logo von Anh Em mit dem Fisch. Am Ende stehen dort der Name, Vietnamesische Küche und Sushi-Bar sowie die Adresse Bahnhofstraße 11, Coburg.">
+        <video class="held__video" id="intro-video" muted playsinline preload="auto"
+               disablepictureinpicture disableremoteplayback aria-hidden="true"
+               poster="images/intro-standbild.webp" width="1920" height="1080">
           <source src="videos/anh-em-intro.mp4" type="video/mp4">
         </video>
-        <div class="held__steuerung" id="intro-steuerung" role="group" aria-label="Intro-Video steuern" hidden>
-          <button type="button" class="filmknopf" id="intro-spielen">Abspielen</button>
-          <button type="button" class="filmknopf" id="intro-ton">Ton an</button>
-        </div>
+        <!-- Kleiner Knopf zum Anhalten; js/intro-video.js zeigt ihn an und setzt die Beschriftung -->
+        <button type="button" class="filmknopf" id="intro-knopf" hidden>
+          <svg class="symbol-pause" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+          <svg class="symbol-spielen" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+        </button>
       </div>
 
-      <!-- Leiste unter dem Video: Live-Anzeige (js/oeffnungszeiten.js) und die zwei Hauptknöpfe -->
+      <!-- Leiste am unteren Rand: Live-Anzeige (js/oeffnungszeiten.js) und die zwei Hauptknöpfe -->
       <div class="held__leiste">
         <p class="held__status">
           <span class="punkt" id="status-punkt" aria-hidden="true"></span>
