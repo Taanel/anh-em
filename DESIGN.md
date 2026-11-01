@@ -44,5 +44,5 @@ Die Farben kommen aus dem Logo und der gedruckten Speisekarte: **Rot** für Akti
 - Über jeder Abschnittsüberschrift die goldene Zierzeile (Linie – Raute – Linie).
 - Eigene Fotos bevorzugen. Das letzte Stimmungsbild trägt die Angabe „Stimmungsbild: …“, damit niemand es für das Restaurant selbst hält.
 - Keine Fotos fremder Gerichte als „unser Essen“.
-- Bewegung: Hintergrund-Video (einmal, stumm, bleibt auf dem Logo stehen; bei „weniger Bewegung“ nur Standbild), sanftes Einblenden beim Scrollen, Hover auf Knöpfen und Fotos.
+- Bewegung: Hintergrund-Video (Dauerschleife, stumm, weicher Übergang am Ende; bei „weniger Bewegung“ nur Standbild), sanftes Einblenden beim Scrollen, Hover auf Knöpfen und Fotos.
   Bei „weniger Bewegung“ ist alles still.

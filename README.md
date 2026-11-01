@@ -68,13 +68,16 @@ Dann im HTML den Dateinamen und den `alt`-Text (Bildbeschreibung) ändern. Werde
 frei lizenzierten Bilder entfernt, auch die Bildnachweise im Impressum und Footer anpassen.
 
 ### Hintergrund-Video austauschen
-Neues Video komprimieren und nach `videos/anh-em-intro.mp4` legen (`-an` entfernt den Ton):
+Neues Video komprimieren und nach `videos/anh-em-intro.mp4` legen. Der Befehl entfernt den Ton (`-an`),
+hält das letzte Bild 2,5 Sekunden länger (`tpad`) und blendet Anfang und Ende weich ein und aus (`fade`),
+damit die Dauerschleife keinen harten Schnitt hat. Die Zeit bei `st=12` gilt für ein 10-Sekunden-Video:
+Länge des Videos + 2,5 Sekunden − 0,5 Sekunden.
 
 ```bash
-ffmpeg -i neues-video.mp4 -vf fps=30 -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -an videos/anh-em-intro.mp4
+ffmpeg -i neues-video.mp4 -vf "fps=30,tpad=stop_mode=clone:stop_duration=2.5,fade=t=in:st=0:d=0.5:c=0x060403,fade=t=out:st=12:d=0.5:c=0x060403" -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -an videos/anh-em-intro.mp4
 ```
 
-Danach auch das Standbild `images/intro-standbild.webp` aus dem letzten Bild neu erzeugen.
+Danach auch das Standbild `images/intro-standbild.webp` neu erzeugen.
 Das Original mit Musik liegt in `material/intro-video-original-mit-ton.mp4` (wird nicht hochgeladen).
 
 ### Farben oder Schriftgrößen ändern

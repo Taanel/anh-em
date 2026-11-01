@@ -1,11 +1,11 @@
 /* =========================================================
    intro-video.js – Steuert das Hintergrund-Video ganz oben
-   - Startet es automatisch und stumm. Es läuft einmal und bleibt
-     dann auf dem letzten Bild mit dem Logo stehen.
+   - Startet es automatisch und stumm. Die Dauerschleife kommt vom
+     Attribut "loop" am <video> in der HTML-Datei.
    - Wer "weniger Bewegung" eingestellt hat, sieht nur das Standbild.
    - Ein kleiner runder Knopf hält das Video an oder startet es.
      (Bewegte Inhalte müssen sich anhalten lassen, das verlangt die
-     Barrierefreiheit.) Nach dem Ende verschwindet der Knopf.
+     Barrierefreiheit.)
    Ohne JavaScript bleibt einfach das Standbild stehen.
    ========================================================= */
 
@@ -21,7 +21,7 @@
   const t = TEXTE[document.documentElement.lang === "en" ? "en" : "de"];
 
   function aktualisiereKnopf() {
-    knopf.hidden = video.ended;
+    knopf.hidden = false;
     knopf.dataset.zustand = video.paused ? "angehalten" : "laeuft"; // CSS zeigt danach das passende Symbol
     knopf.setAttribute("aria-label", video.paused ? t.abspielen : t.pause);
   }
@@ -31,7 +31,7 @@
     else video.pause();
   });
 
-  ["play", "pause", "ended"].forEach(function (ereignis) {
+  ["play", "pause"].forEach(function (ereignis) {
     video.addEventListener(ereignis, aktualisiereKnopf);
   });
   aktualisiereKnopf();
